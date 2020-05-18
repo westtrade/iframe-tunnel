@@ -45,6 +45,12 @@ export class ClientTunnel extends JSEmitter implements Tunnel {
 
   private onFrameMessage(event) {
     log('onFrameMessage client: ' + JSON.stringify(event));
+    
+    if(typeof event.data !== 'string') {
+      log('onFrameMessage client: ' + JSON.stringify(event) + ' data is not a string');
+    }
+    
+    
     if (event.data) {
       const message = unPackMessage(event.data);
       this.emit(message.key, message.data);
