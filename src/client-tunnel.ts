@@ -47,7 +47,6 @@ export class ClientTunnel extends JSEmitter implements Tunnel {
     log('onFrameMessage client: ' + JSON.stringify(event));
     
     if(typeof event.data !== 'string') {
-      log('onFrameMessage client: ' + JSON.stringify(event) + ' data is not a string');
       return
     }
     
